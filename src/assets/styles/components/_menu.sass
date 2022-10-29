@@ -1,0 +1,116 @@
+.m
+  position: sticky
+  top: 0
+  height: 100vh
+  flex: 0 0 230px
+  padding-bottom: 50px
+  display: flex
+  align-items: center
+  flex-direction: column
+  border-top-right-radius: 26px
+  border-bottom-right-radius: 26px
+  background-color: #353B55
+  &-h
+    width: 100%
+    flex: 0 0 auto
+    padding: 10px
+  &-datetime
+    margin-bottom: 54px
+    border-radius: 26px
+    padding: 10px 8px
+    display: flex
+    gap: 10px
+    align-items: center
+    justify-content: space-between
+    background-color: $component-dark
+    &__value
+      +semibold
+      font-size: 15px
+      color: $text-white
+  &-bar
+    margin-bottom: 38px
+    display: flex
+    align-items: center
+    justify-content: space-between
+    &-btn
+      flex: 0 0 auto
+      position: relative
+      border-radius: 12px
+      border: none
+      width: 50px
+      height: 50px
+      display: flex
+      align-items: center
+      justify-content: center
+      background-color: $component-dark
+      cursor: pointer
+      transition: background-color 0.2s ease-in-out
+      &:hover
+        background-color: $component
+        svg, path
+          stroke: $text
+      &:active
+        transform: scale(0.98)
+      &-indicator
+        position: absolute
+        top: -5px
+        right: -5px
+        border-radius: 50%
+        width: 15px
+        height: 15px
+        background-color: $danger
+  &__sep
+    flex: 0 0 auto
+    align-self: center
+    border-radius: 5px
+    width: 80%
+    height: 5px
+    background-color: rgba(#F3F3F3, 0.5)
+  &-nav
+    overflow-y: auto
+    flex: 1 0 auto
+    padding: 36px 0
+    width: 100%
+    display: flex
+    flex-direction: column
+    gap: 10px
+    &-item
+      position: relative
+      height: 70px
+      padding-left: 45px
+      display: flex
+      align-items: center
+      gap: 20px
+      cursor: pointer
+      color: rgba($lightgrey, 0.5)
+      transition: 0.2s ease-in-out
+      &::before
+        content: ''
+        position: absolute
+        top: 0
+        left: 0
+        width: 15px
+        height: 100%
+        border-top-right-radius: 20px
+        border-bottom-right-radius: 20px
+        background-color: $text-white
+        opacity: 0
+        transition: 0.2s ease-in-out
+      &:hover
+        color: $text-white
+        &::before
+          opacity: 1
+        svg, path
+          stroke: #FFFFFF
+          stroke-opacity: 1
+      &-label
+        +med
+        font-size: 17px
+  &-logout
+    flex: 0 0 auto
+    display: inline-block
+    text-align: center
+    transition: 0.2s ease-in-out
+    cursor: pointer
+    &:hover
+      transform: scale(1.05)

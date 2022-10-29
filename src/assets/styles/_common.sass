@@ -1,0 +1,36 @@
+*
+  box-sizing: border-box
+  scrollbar-width: 4px
+  scrollbar-color: $menu transparent
+  &::-webkit-scrollbar
+    width: 4px
+    height: 4px
+  &::-webkit-scrollbar-track
+    background-color: transparent
+  &::-webkit-scrollbar-thumb
+    border-radius: 4px
+    background-color: $menu
+
+.root
+  min-height: 100vh
+  display: flex
+  gap: 70px
+  background-color: #EBEEF5
+
+.circle-progress
+  width: 100%
+  height: 100%
+  fill: none
+  stroke-width: 14px
+  transform: rotate(-90deg)
+  &__wrap
+    width: 150px
+    height: 150px
+    &._blue
+      .circle-progress-line
+        &:last-child
+          stroke: $blue
+  &-placeholder
+    stroke: $lightgrey
+  &-line
+    stroke-dasharray: 430
