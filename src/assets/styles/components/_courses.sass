@@ -1,0 +1,51 @@
+.crs
+  &-title
+    color: $text
+  &-track
+    display: flex
+    gap: 54px
+  &-card
+    border-radius: 15px
+    min-height: 312px
+    padding: 16px
+    display: flex
+    flex-direction: column
+    background-color: $component
+    box-shadow: 0px 4px 9px rgba(0, 0, 0, 0.3)
+    &-title
+      margin-bottom: 13px
+      +semibold
+      font-size: 19px
+      line-height: 1.2
+      color: $text
+    &-desc
+      margin-bottom: 15px
+      +light
+      font-size: 15px
+      line-height: 1.2
+      color: $text
+    &-progress
+      margin-top: auto
+      &-value
+        margin-bottom: 33px
+        display: flex
+        align-items: center
+        gap: 17px
+        .label
+          +light
+          font-size: 14px
+          text-transform: uppercase
+          color: $text
+        .value
+          +med
+          font-size: 24px
+          color: $text
+      &-placeholder
+        border-radius: 3px
+        width: 100%
+        height: 5px
+        background-color: $lightgrey
+        .progress
+          border-radius: 3px
+          height: 100%
+          background-color: $green1

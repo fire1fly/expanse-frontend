@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Content, WelcomeWidget, ProgressWidget, CalendarWidget } from '../components'
+import { Content, WelcomeWidget, ProgressWidget, CalendarWidget, StaffWidget, Courses } from '../components'
 
 export default function Main() {
   return (
@@ -9,6 +9,8 @@ export default function Main() {
         <WelcomeWidget />
         <ProgressWidget />
         <CalendarWidget />
+        <StaffWidget />
+        <Courses />
       </div>
     </Content>
   )

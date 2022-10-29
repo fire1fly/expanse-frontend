@@ -19,7 +19,7 @@ export default function ProgressWidget() {
           <CircleProgress 
             classname="_blue prgwid-progress"
             label="Прогресс"
-            value={35}
+            value={10}
           />
         </div>
         <div className="prgwid-list">

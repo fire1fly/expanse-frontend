@@ -1,0 +1,54 @@
+.staffwid
+  border-radius: 16px
+  padding: 20px 4px 10px 16px
+  background-color: $component
+  display: flex
+  flex-direction: column
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3)
+  &-title
+    margin-bottom: 30px
+    +black
+    font-size: 24px
+    color: $text
+  &-track
+    flex: 1 1 100%
+    overflow-x: hidden
+    overflow-y: scroll
+  &-list
+    display: flex
+    flex-direction: column
+    gap: 46px
+  &-group
+    &__inner
+      display: flex
+      flex-direction: column
+      gap: 40px
+    &-label
+      margin-bottom: 12px
+      text-align: center
+      +reg
+      font-size: 19px
+      color: $text
+    &__sep
+      margin: 0 auto 40px
+      width: 80%
+      height: 1px
+      background-color: rgba($text, 0.5)
+  &-item
+    display: flex
+    align-items: center
+    gap: 7px
+    &-avatar
+      flex: 0 0 auto
+      border-radius: 50%
+      width: 60px
+      height: 60px
+      background-color: #F5F5F5
+    &-name
+      +bold
+      font-size: 16px
+      color: $text
+    &-value
+      +reg
+      font-size: 16px
+      color: $text
