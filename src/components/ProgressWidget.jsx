@@ -1,6 +1,12 @@
 import React from 'react';
 
-import CircleProgress from './CircleProgress'
+import CircleProgress from './CircleProgress';
+
+const stat = [
+  {value: 5, label: "блоков завершено"},
+  {value: 15, label: "практических работ выполнено"},
+  {value: 1, label: "блоков осталось изучить"},
+]
 
 export default function ProgressWidget() {
   return (
@@ -9,14 +15,22 @@ export default function ProgressWidget() {
         <div className="prgwid-title">Мой прогресс</div>
       </div>
       <div className="prgwid-b">
-        <div className="prgwid-progress prgwid-b-chart">
-          <div className='prgwid-progress__inner'>
-            <CircleProgress 
-              classname="prgwid-progress-circle _blue"
-              label="Прогресс"
-              value={35}
-            />
-          </div>
+        <div className="prgwid-progress__wrap prgwid-b-chart">
+          <CircleProgress 
+            classname="_blue prgwid-progress"
+            label="Прогресс"
+            value={35}
+          />
+        </div>
+        <div className="prgwid-list">
+          {
+            stat.map((item, i) => 
+              <div key={i} className="prgwid-item">
+                <div className="prgwid-item-value">{item.value}</div>
+                <div className="prgwid-item-label">{item.label}</div>
+              </div>
+            )
+          }
         </div>
       </div>
     </div>

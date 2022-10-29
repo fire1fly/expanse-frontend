@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function CircleProgress({classname, value}) {
+export default function CircleProgress({classname, value, label}) {
   return (
     <div className={`${classname} circle-progress__wrap`}>
       <svg xmlns="http://www.w3.org/2000/svg" className='circle-progress'>
@@ -12,6 +12,13 @@ export default function CircleProgress({classname, value}) {
           >
           </circle>
       </svg>
+      {label ?
+        <div className={`${classname}__inner circle-progress__inner`}>
+          <div className="value">{value}%</div>
+          <div className="label">{label}</div>
+        </div>
+        : null
+      }
     </div>
   )
 }
