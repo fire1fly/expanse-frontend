@@ -1,7 +1,39 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link,Navigate } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { fetchAuth, selectIsAuth } from '../store/auth';
 
 export default function RegisterForm() {
+
+  const isAuth = useSelector(selectIsAuth);
+  const dispatch = useDispatch();
+
+  const { register, 
+    handleSubmit, 
+    setError, 
+    formState: { errors, isValid } 
+  } = useForm({
+    defaultValues: {
+      email: '', 
+      password: ''
+    },
+    mode: 'onChange'
+  });
+
+  const onSubmit = async (values) => {
+    const data = await dispatch(fetchAuth(values));
+    if (data.payload.token) {
+      console.log("token is true");
+      window.localStorage.setItem('token', data.payload.token);
+    }
+  };
+
+  if (isAuth) {
+    return <Navigate to="/" />
+  }
+
   return (
     <div className='sign__wrap'>
       <div className="sign widget">

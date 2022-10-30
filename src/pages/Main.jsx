@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+
+import axios from '../axios';
 
 import { 
   Menu, 
@@ -11,6 +13,7 @@ import {
 } from '../components'
 
 export default function Main() {
+
   return (
     <div className='root'>
       <Menu />

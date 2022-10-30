@@ -1,12 +1,21 @@
-import React from 'react'
-import { Routes, Route } from 'react-router-dom'
+import React, { useEffect } from 'react'
+import { Routes, Route } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 
+import { fetchAuthMe, selectIsAuth } from './store/auth';
 import './assets/styles/styles.sass';
 
 import { LoginForm, RegisterForm } from './components'
 import { Main, Calendar, Chat, Education, Archive } from './pages'
 
 function App() {
+
+  const dispatch = useDispatch();
+  const isAuth = useSelector(selectIsAuth);
+
+  useEffect(() => {
+    dispatch(fetchAuthMe());
+  }, []);
 
   return (
     <div className='root'>
