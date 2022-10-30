@@ -1,27 +1,33 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 
 import { SvgSelector } from '../utils';
 
 const nav = [
   {
     title: "Главная ",
-    icon: "nav-home"
+    icon: "nav-home",
+    route: ""
   },
   {
     title: "Календарь ",
-    icon: "nav-calendar"
+    icon: "nav-calendar",
+    route: "calendar"
   },
   {
     title: "Чат",
-    icon: "nav-chat"
+    icon: "nav-chat",
+    route: "chat"
   },
   {
     title: "Обучение",
-    icon: "nav-edu"
+    icon: "nav-edu",
+    route: "edu"
   },
   {
     title: "База знаний",
-    icon: "nav-archive"
+    icon: "nav-archive",
+    route: "archive"
   },
 ]
 
@@ -87,10 +93,10 @@ export default function Menu() {
       <div className="m-nav">
           {
             nav.map((item, i) => 
-              <div key={i} className="m-nav-item">
+              <Link key={i} to={`/${item.route}` || ''} className="m-nav-item">
                 <SvgSelector id={item.icon} />
                 <div className="m-nav-item-label">{item.title}</div>
-              </div>
+              </Link>
             )
           }
       </div>

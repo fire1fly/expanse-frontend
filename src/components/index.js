@@ -6,3 +6,5 @@ export { default as CircleProgress } from "./CircleProgress";
 export { default as CalendarWidget } from "./CalendarWidget";
 export { default as StaffWidget } from "./StaffWidget";
 export { default as Courses } from "./Courses";
+export { default as LoginForm } from "./LoginForm";
+export { default as RegisterForm } from "./RegisterForm";
