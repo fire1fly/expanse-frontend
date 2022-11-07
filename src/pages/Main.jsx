@@ -1,6 +1,8 @@
-import React, { useEffect } from 'react';
+import React from 'react';
+import { Navigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
-import axios from '../axios';
+import { selectIsAuth } from '../store/auth';
 
 import { 
   Menu, 
@@ -13,6 +15,12 @@ import {
 } from '../components'
 
 export default function Main() {
+
+  const isAuth = useSelector(selectIsAuth);
+
+  if (!isAuth) {
+    return <Navigate to="/login" />
+  }
 
   return (
     <div className='root'>

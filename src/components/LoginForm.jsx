@@ -25,7 +25,6 @@ export default function LoginForm() {
   const onSubmit = async (values) => {
     const data = await dispatch(fetchAuth(values));
     if (data.payload.token) {
-      console.log("token is true");
       window.localStorage.setItem('token', data.payload.token);
     }
   };

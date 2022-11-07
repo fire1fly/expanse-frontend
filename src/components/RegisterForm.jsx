@@ -1,9 +1,9 @@
 import React from 'react';
-import { Link,Navigate } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { fetchAuth, selectIsAuth } from '../store/auth';
+import { fetchRegister, selectIsAuth } from '../store/auth';
 
 export default function RegisterForm() {
 
@@ -23,7 +23,7 @@ export default function RegisterForm() {
   });
 
   const onSubmit = async (values) => {
-    const data = await dispatch(fetchAuth(values));
+    const data = await dispatch(fetchRegister(values));
     if (data.payload.token) {
       console.log("token is true");
       window.localStorage.setItem('token', data.payload.token);
@@ -36,31 +36,55 @@ export default function RegisterForm() {
 
   return (
     <div className='sign__wrap'>
-      <div className="sign widget">
+      <form className="sign widget" onSubmit={handleSubmit(onSubmit)}>
         <div className="sign-h widget-h">Регистрация</div>
         <div className="sign-b">
           <div className="form-part">
             <label htmlFor="email" className='form-label'>E-mail</label>
-            <input id="email" type="email" className='form-input'/>
+            <input 
+              id="email" 
+              type="email" 
+              className='form-input'
+              {...register('email', {required: 'Укажите почту'})}
+            />
+            <div className="form-part-msg">{errors.email?.message}</div>
           </div>
           <div className="form-part">
-            <label htmlFor="name" className='form-label'>Имя и Фамилия</label>
-            <input id="name" type="text" className='form-input'/>
+            <label htmlFor="fullname" className='form-label'>Имя и Фамилия</label>
+            <input 
+              id="fullname" 
+              type="text" 
+              className='form-input'
+              {...register('fullName', {required: 'Укажите имя и фамилию'})}
+            />
+            <div className="form-part-msg">{errors.fullName?.message}</div>
           </div>
           <div className="form-part">
             <label htmlFor="password" className='form-label'>Пароль</label>
-            <input id="password" type="password" className='form-input'/>
+            <input 
+              id="password" 
+              type="password" 
+              className='form-input'
+              {...register('password', {required: 'Укажите пароль'})}
+            />
+            <div className="form-part-msg">{errors.password?.message}</div>
           </div>
           <div className="form-part">
             <label htmlFor="password_confirm" className='form-label'>Подтверждение пароля</label>
-            <input id="password_confirm" type="password" className='form-input'/>
+            <input 
+              id="password_confirm" 
+              type="password" 
+              className='form-input'
+              {...register('passwordConfirm', {required: 'Подтвердите пароль'})}
+            />
+            <div className="form-part-msg">{errors.passwordConfirm?.message}</div>
           </div>
           <div className="sign-f">
             <Link to="/login" className="sign-link">Уже есть аккаунт? Войдите</Link>
-            <button className="sign-btn">Зарегестрироваться</button>
+            <button type="submit" className="sign-btn">Зарегестрироваться</button>
           </div>
         </div>
-      </div>
+      </form>
     </div>
   )
 }

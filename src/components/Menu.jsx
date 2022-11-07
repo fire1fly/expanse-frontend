@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
-import { selectIsAuth, logout } from '../store/auth';
+import { logout } from '../store/auth';
 import { SvgSelector } from '../utils';
 
 const nav = [
@@ -36,7 +36,6 @@ const nav = [
 export default function Menu() {
 
   const dispatch = useDispatch();
-  const isAuth = useSelector(selectIsAuth);
 
   const onLogout = () => {
     dispatch(logout());
@@ -110,9 +109,9 @@ export default function Menu() {
             )
           }
       </div>
-      <div className="m-logout" onClick={onLogout}>
+      <Link to="/login" className="m-logout" onClick={onLogout}>
         <SvgSelector id="logout" />
-      </div>
+      </Link>
     </div>
   )
 }
