@@ -12,17 +12,18 @@ export default function CalendarWidget() {
   let [date, setDate] = useState(moment());
 
   const dispatch = useDispatch();
+  let userId = useSelector(state => state.auth.data._id);
   let {data, status} = useSelector(state => state.events);
-
-  console.log(status);
-  console.log(moment(date).format("DD-MM-YYYY"));
 
   useEffect(() => {
     handleWeek();
   }, []);
 
   useEffect(() => {
-    dispatch(fetchEventsByDay(moment(date).format("DD-MM-YYYY")));
+    dispatch(fetchEventsByDay({
+      date: moment(date).format("DD-MM-YYYY"),
+      userId
+    }));
   }, [date, week]);
 
   const handleWeek = () => {
@@ -91,7 +92,7 @@ export default function CalendarWidget() {
       </div>
       <div className="calwid-b">
         {
-          status === "loading" ? <Skeleton /> : <EventList list={data} />
+          status === "loading" ? <Skeleton /> : <EventList data={data} />
         }
       </div>
     </div>
