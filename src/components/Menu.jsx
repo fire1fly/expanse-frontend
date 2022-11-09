@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import moment from '../utils/date';
 
 import { logout } from '../store/auth';
+import Notifications from './Notifications';
 import { SvgSelector } from '../utils';
 
 const nav = [
@@ -35,6 +37,8 @@ const nav = [
 
 export default function Menu() {
 
+  const [ notsActive, setNotActive ] = useState(false);
+
   const dispatch = useDispatch();
 
   const onLogout = () => {
@@ -42,15 +46,25 @@ export default function Menu() {
     window.localStorage.removeItem('token');
   }
 
+  const datetime = moment();
+
   return (
     <div className="m">
       <div className='m-h'>
         <div className="m-datetime">
-          <div className="m-datetime__value">Апрель 5, 2022 </div>
-          <div className="m-datetime__value">15:00</div>
+          <div className="m-datetime__value">{datetime.format("LL")}</div>
+          <div className="m-datetime__value">{datetime.format("LT")}</div>
         </div>
         <div className="m-bar">
-          <button className="m-bar-btn">
+          {
+            notsActive ? 
+            <Notifications onUnmount={setNotActive} /> :
+            null
+          }
+          <button 
+            className={`m-bar-btn nots-btn ${notsActive ? "active" : null}`}
+            onClick={() => setNotActive(state => !state)}
+          >
             <div className="m-bar-btn-indicator"></div>
             <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
               <g clipPath="url(#clip0_395_416)">

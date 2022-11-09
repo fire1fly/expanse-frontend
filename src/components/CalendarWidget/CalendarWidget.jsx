@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import moment from '../../utils/date';
-import { fetchEventsByDay } from '../../store/events'
+import { fetchEventsByDay } from '../../store/events';
 import Skeleton from './CalendarWidgetSkeleton';
 import EventList from './EventList';
 

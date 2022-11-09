@@ -1,4 +1,5 @@
 export { default as Menu } from "./Menu";
+export { default as Notifications } from "./Notifications";
 export { default as Content } from "./Content";
 export { default as WelcomeWidget } from "./WelcomeWidget";
 export { default as ProgressWidget } from "./ProgressWidget";

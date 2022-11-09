@@ -1,0 +1,91 @@
+.nots
+  position: absolute
+  top: 10px
+  left: calc(100% + 70px)
+  z-index: 10
+  border-radius: 15px
+  width: 520px
+  min-height: 300px
+  padding: 12px 15px
+  display: flex
+  flex-direction: column
+  background-color: $component
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3)
+  opacity: 0
+  transition: 0.2s ease-in-out
+  &.active
+    opacity: 1
+  &-title
+    margin-bottom: 12px
+    +bold
+    font-size: 19px
+    color: $text
+  &-track
+    flex: 1 1 auto
+    margin-bottom: 20px
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    gap: 30px
+  &-loader
+    width: 80px
+    height: 80px
+  &-item
+    width: 100%
+    display: flex
+    flex-direction: column
+    align-items: flex-start
+    gap: 5px
+    &-dateplate
+      display: inline-block
+      border-radius: 15px
+      padding: 2px 8px
+      +bold
+      font-size: 14px
+      color: $text
+      background-color: $note
+      &::first-letter
+        text-transform: uppercase
+      &.active
+        background-color: $lightblue
+    &-title
+      +bold
+      font-size: 14px
+      color: $text
+    &-text
+      +light
+      font-size: 14px
+      line-height: 1.2
+      color: $text
+  &-f
+    padding-right: 38px
+    display: flex
+    justify-content: center
+    align-items: center
+  &-more
+    margin: 0 auto
+    text-decoration: underline
+    +light
+    font-size: 13px
+    color: $text
+    cursor: pointer
+  &-btn-close
+    position: absolute
+    bottom: 15px
+    right: 25px
+    width: 20px
+    height: 10px
+    display: flex
+    align-items: center
+    cursor: pointer
+    transition: 0.2s ease-in-out
+    &:hover
+      transform: scale(1.2)
+    span
+      transition: 0.2 ease-in-out
+      display: block
+      border-radius: 2px
+      width: 20px
+      height: 2px
+      background-color: $text
