@@ -9,3 +9,4 @@ export { default as StaffWidget } from "./StaffWidget";
 export { default as Courses } from "./Courses";
 export { default as LoginForm } from "./LoginForm";
 export { default as RegisterForm } from "./RegisterForm";
+export { default as SlideButton } from "./SlideButton";

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import moment from '../utils/date';
 
@@ -38,7 +38,7 @@ const nav = [
 export default function Menu() {
 
   const [ notsActive, setNotActive ] = useState(false);
-
+  const location = useLocation();
   const dispatch = useDispatch();
 
   const onLogout = () => {
@@ -116,7 +116,11 @@ export default function Menu() {
       <div className="m-nav">
           {
             nav.map((item, i) => 
-              <Link key={i} to={`/${item.route}` || ''} className="m-nav-item">
+              <Link 
+                key={i} 
+                to={`/${item.route}` || ''} 
+                className={`m-nav-item ${location.pathname === '/' + item.route ? 'active' : ''}`}
+              >
                 <SvgSelector id={item.icon} />
                 <div className="m-nav-item-label">{item.title}</div>
               </Link>

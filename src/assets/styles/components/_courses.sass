@@ -1,9 +1,46 @@
 .crs
+  &-slider
+    display: flex
+    flex-direction: column
+    .swiper-wrapper
+      order: 1
+      padding: 10px
+  &-h
+    margin-bottom: 10px
+    display: flex
+    align-items: center
+    justify-content: space-between
+  &-bar
+    display: flex
+    align-items: center
+    &-btn
+      border: none
+      flex: 0 0 auto
+      width: 40px
+      height: 30px
+      padding: 0
+      display: flex
+      align-items: center
+      justify-content: center
+      background-color: transparent
+      cursor: pointer
+      transition: 0.2s
+      svg
+        fill: $text
+      &:hover
+        transform: scale(1.04)
+      &:active
+        transform: scale(0.98)
   &-title
     color: $text
   &-track
     display: flex
     gap: 54px
+    &-placeholder
+      margin: auto
+      +bold
+      font-size: 20px
+      color: $text
   &-card
     border-radius: 15px
     min-height: 312px
